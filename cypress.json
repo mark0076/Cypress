@@ -1,0 +1,13 @@
+{
+  "defaultCommandTimeout": 8000,
+  "pageLoadTimeout": 10000,
+  "chromeWebSecurity": false,
+  "reporter": "mochawesome",
+  "env": {
+    "url": "https://rahulshettyacademy.com/angularpractice/"
+  },
+  "projectId": "sy6fxv"
+  
+
+}
+

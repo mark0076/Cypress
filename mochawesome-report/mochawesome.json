@@ -1,0 +1,99 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-12-26T19:41:34.553Z",
+    "end": "2019-12-26T19:41:55.844Z",
+    "duration": 21291,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9d045f87-a80a-45d7-b28c-48a16546beef",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "758939c5-b41a-4a3e-82d8-fa1c624cd89b",
+          "title": "My Second Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My Second Test Case",
+              "fullTitle": "My Second Test Suite My Second Test Case",
+              "timedOut": null,
+              "duration": 14267,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var homePage = new _HomePage.default();\nvar productsPage = new _ProductsPage.default();\ncy.visit(Cypress.env('url'));\nhomePage.getEditBox().type(this.data.name);\nhomePage.getGender().select(this.data.gender);\nhomePage.getTwoWayDataBinding().should('have.value', this.data.name);\nhomePage.getEditBox().should('have.attr', 'minlength', '2');\nhomePage.getEnterpreneaur().should('be.disabled'); //cy.pause() //or .debug()\nhomePage.getShopTab().click();\nCypress.config(\"defaultCommandTimeout\", 8000);\nthis.data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n});\nproductsPage.checkOutButton().click();\nvar sum = 0;\ncy.get('tr>td:nth-child(4)>strong').each(function ($e1, index, $list) {\n  var amount = $e1.text();\n  var res = amount.split(\" \");\n  res = res[1].trim();\n  sum = Number(sum) + Number(res);\n}).then(function () {\n  cy.log(sum);\n});\ncy.get('.text-right strong').then(function (element) {\n  var amount = element.text();\n  var res = amount.split(\" \");\n  var total = res[1].trim();\n  expect(Number(total)).to.equal(sum);\n});\ncy.contains('Checkout').click();\ncy.get('#country').type('India');\ncy.get('#checkbox2').click({\n  force: true\n});\ncy.get('input[type=\"submit\"].btn.btn-success.btn-lg').click();\ncy.get('.alert').then(function (element) {\n  var actualText = element.text();\n  expect(actualText.includes(\"Success\")).to.be.true;\n});",
+              "err": {},
+              "uuid": "dafe9eab-19d1-48a5-a242-2339ffa76747",
+              "parentUUID": "758939c5-b41a-4a3e-82d8-fa1c624cd89b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dafe9eab-19d1-48a5-a242-2339ffa76747"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14267,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {},
+      "version": "4.1.0"
+    }
+  }
+}
